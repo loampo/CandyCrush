@@ -46,6 +46,4 @@ public class GridManager : MonoBehaviour
             y -= 1 * (gridData.cellSize.z + gridData.cellGap.z);
         }
     }
-
-
 }

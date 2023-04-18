@@ -15,11 +15,6 @@ public class Candy : MonoBehaviour
         column = newColumn;
         color = newColor;
     }
-
-    public void Fall(int newRow)
-    {
-        //TODO: implementare la caduta della caramella verso il basso
-    }
 }
 
 public enum CandyColor
