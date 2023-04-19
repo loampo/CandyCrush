@@ -37,7 +37,6 @@ public class Candy : MonoBehaviour
 
     void Update()
     {
-        //findMatches();
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
