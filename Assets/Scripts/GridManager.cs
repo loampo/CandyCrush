@@ -20,16 +20,16 @@ public class GridManager : MonoBehaviour
     public int height;
     public int offset;
     public GameObject tilePrefab;
-    private Tile[,] allTiles;
+    private Tile[,] _allTiles;
     public GameObject[] candies;
     public GameObject[,] allCandies;
-    private MatchesManager findMatches;
+    private MatchesManager _findMatches;
 
     // Start is called before the first frame update
     void Start()
     {
-        findMatches = FindObjectOfType<MatchesManager>();
-        allTiles = new Tile[width, height];
+        _findMatches = FindObjectOfType<MatchesManager>();
+        _allTiles = new Tile[width, height];
         allCandies = new GameObject[width, height];
         Setup();
     }
@@ -113,7 +113,7 @@ public class GridManager : MonoBehaviour
     {
         if (allCandies[col, row].GetComponent<Candy>().isMatched)
         {
-            findMatches.currentMatches.Remove(allCandies[col, row]);
+            _findMatches.currentMatches.Remove(allCandies[col, row]);
             Destroy(allCandies[col, row]);
             allCandies[col, row] = null;
         }
@@ -200,7 +200,7 @@ public class GridManager : MonoBehaviour
     {
         refillBoard();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.3f);
 
         while (matchesOnBoard())
         {
@@ -208,7 +208,7 @@ public class GridManager : MonoBehaviour
             destroyMatches();
         }
 
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(2f);
         currentState = gameState.move;
     }
 }
