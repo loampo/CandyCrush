@@ -108,11 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a515098f3f3381a42bc93ec910815840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    row: 0
-    column: 0
-    gm: {fileID: 0}
-  Candy:
+  Candies:
   - {fileID: 6101261890710891198, guid: a6bfabf1a1651db40afc06e57565cddf, type: 3}
   - {fileID: 153369484263561733, guid: 8a26221caf75e9d499d4a4af1c23cf7d, type: 3}
   - {fileID: 7383942987314357091, guid: 7a30d3a975024634d906ed4822324485, type: 3}

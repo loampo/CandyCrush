@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7359598971395221798}
   - component: {fileID: 4444393471861285891}
   - component: {fileID: 4200620259901212322}
+  - component: {fileID: -7580959837653361794}
   m_Layer: 0
   m_Name: Square (5)
-  m_TagString: Untagged
+  m_TagString: Yellow Candy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +96,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5267e6cda0acf7248a4a035300f5ed23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMatched: 0
+  col: 0
   row: 0
-  column: 0
-  color: 4
+  targetX: 0
+  targetY: 0
+  prevCol: 0
+  prevRow: 0
+  swipeResist: 0.5
+  swipeAngle: 0
+--- !u!65 &-7580959837653361794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929593697081832642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -6,10 +6,21 @@ using UnityEngine.Tilemaps;
 
 public class Tile : MonoBehaviour
 {
-    public TileData data;
-
-    public void Initialize(GridManager gridM, int rowInit, int columnInit)
+    public GameObject[] Candies;
+    // Start is called before the first frame update
+    void Start()
     {
-        data = new TileData(gridM, rowInit, columnInit);
+        Initialize();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void Initialize()
+    {
+
     }
 }
