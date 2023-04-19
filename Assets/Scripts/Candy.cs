@@ -29,21 +29,18 @@ public class Candy : MonoBehaviour
     public float swipeResist = 1f;
     public float swipeAngle = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         grid = FindObjectOfType<GridManager>();
         match = FindObjectOfType<MatchesManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //findMatches();
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-            //mySprite.color = new Color(0f, 0f, 0f, .2f);
         }
         targetX = col;
         targetY = row;
@@ -82,7 +79,6 @@ public class Candy : MonoBehaviour
             //Directly set the position
             tempPos = new Vector2(transform.position.x, targetY);
             transform.position = tempPos;
-            //board.allDots[col, row] = this.gameObject;
         }
     }
 
@@ -137,7 +133,6 @@ public class Candy : MonoBehaviour
         if (Mathf.Abs(finalTouchPos.y - firstTouchPos.y) > swipeResist || Mathf.Abs(finalTouchPos.x - firstTouchPos.x) > swipeResist)
         {
             swipeAngle = Mathf.Atan2(finalTouchPos.y - firstTouchPos.y, finalTouchPos.x - firstTouchPos.x) * 180 / Mathf.PI;
-            //Debug.Log(swipeAngle);
             movePieces();
             grid.currentState = GridManager.gameState.wait;
         }
@@ -192,28 +187,28 @@ public class Candy : MonoBehaviour
     {
         if (col > 0 && col < grid.width - 1)
         {
-            GameObject leftDot1 = grid.allCandies[col - 1, row];
-            GameObject rightDot1 = grid.allCandies[col + 1, row];
-            if (leftDot1 != null && rightDot1 != null)
+            GameObject leftCandy1 = grid.allCandies[col - 1, row];
+            GameObject rightCandy1 = grid.allCandies[col + 1, row];
+            if (leftCandy1 != null && rightCandy1 != null)
             {
-                if (leftDot1.tag == this.gameObject.tag && rightDot1.tag == this.gameObject.tag)
+                if (leftCandy1.tag == this.gameObject.tag && rightCandy1.tag == this.gameObject.tag)
                 {
-                    leftDot1.GetComponent<Candy>().isMatched = true;
-                    rightDot1.GetComponent<Candy>().isMatched = true;
+                    leftCandy1.GetComponent<Candy>().isMatched = true;
+                    rightCandy1.GetComponent<Candy>().isMatched = true;
                     isMatched = true;
                 }
             }
         }
         if (row > 0 && row < grid.height - 1)
         {
-            GameObject upDot1 = grid.allCandies[col, row + 1];
-            GameObject downDot1 = grid.allCandies[col, row - 1];
-            if (upDot1 != null && downDot1 != null)
+            GameObject upCandy1 = grid.allCandies[col, row + 1];
+            GameObject downCandy1 = grid.allCandies[col, row - 1];
+            if (upCandy1 != null && downCandy1 != null)
             {
-                if (upDot1.tag == this.gameObject.tag && downDot1.tag == this.gameObject.tag)
+                if (upCandy1.tag == this.gameObject.tag && downCandy1.tag == this.gameObject.tag)
                 {
-                    upDot1.GetComponent<Candy>().isMatched = true;
-                    downDot1.GetComponent<Candy>().isMatched = true;
+                    upCandy1.GetComponent<Candy>().isMatched = true;
+                    downCandy1.GetComponent<Candy>().isMatched = true;
                     isMatched = true;
                 }
             }

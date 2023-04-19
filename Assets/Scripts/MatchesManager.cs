@@ -8,14 +8,13 @@ public class MatchesManager : MonoBehaviour
 {
     private GridManager grid;
     public List<GameObject> currentMatches = new List<GameObject>();
-
+    int addscore = GameManager.instance.scoreForMatch;//Se si vuole cambiare per i livelli futuri
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = FindObjectOfType<GridManager>();
+        grid = FindObjectOfType<GridManager>();        
     }
-
     public void findAllMatches()
     {
         StartCoroutine(findAllMatchesCo());
@@ -56,7 +55,7 @@ public class MatchesManager : MonoBehaviour
                                 currentCandy.GetComponent<Candy>().isMatched = true;
 
                                 // Increase the score and reset the currentMatches list
-                                UIManager.instance.IncreaseScore(10);
+                                UIManager.instance.IncreaseScore(addscore);
                                 currentMatches.Clear();
 
                             }
@@ -86,7 +85,7 @@ public class MatchesManager : MonoBehaviour
                                 }
                                 currentCandy.GetComponent<Candy>().isMatched = true;
                                 // Increase the score and reset the currentMatches list
-                                UIManager.instance.IncreaseScore(10);
+                                UIManager.instance.IncreaseScore(addscore);
                                 currentMatches.Clear();
                             }
                         }

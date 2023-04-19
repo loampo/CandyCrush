@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public int scoreForMatch = 10;
     private void Awake()
     {
         //Controllo in più
