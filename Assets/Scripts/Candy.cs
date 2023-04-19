@@ -226,6 +226,7 @@ public class Candy : MonoBehaviour
             }
         }
     }
+    //Effects to know which candy you are selecting 
     void OnMouseOver()
     {
         shadow.SetActive(true);
