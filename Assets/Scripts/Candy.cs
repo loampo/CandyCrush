@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public class Candy : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class Candy : MonoBehaviour
     public int prevCol;
     public int prevRow;
 
+    public GameObject shadow;
 
     private MatchesManager match;
     private GridManager grid;
@@ -215,5 +218,14 @@ public class Candy : MonoBehaviour
                 }
             }
         }
+    }
+    void OnMouseOver()
+    {
+        shadow.SetActive(true);
+    }
+
+    void OnMouseExit()
+    {
+        shadow.SetActive(false);
     }
 }

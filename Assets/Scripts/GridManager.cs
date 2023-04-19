@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
 using UnityEngine.XR;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GridManager : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class GridManager : MonoBehaviour
     public GameObject[,] allCandies;
     private MatchesManager findMatches;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,10 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
+        {
+            GameManager.instance.Pause();         
+        }
     }
 
 
@@ -59,7 +62,6 @@ public class GridManager : MonoBehaviour
                 {
                     dotToUse = Random.Range(0, candies.Length);
                     maxIterations++;
-                    Debug.Log(maxIterations);
                 }
                 maxIterations = 0;
 

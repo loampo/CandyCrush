@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/Scenes/Men\xF9.unity"
+    guid: ff031ef0e43a6234e926351922cceb60
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: fcee1d6e064d67541b68d60853f00d9a
   m_configObjects: {}

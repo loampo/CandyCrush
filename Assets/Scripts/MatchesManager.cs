@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MatchesManager : MonoBehaviour
 {
@@ -31,27 +33,31 @@ public class MatchesManager : MonoBehaviour
                 {
                     if (x > 0 && x < grid.width - 1)
                     {
-                        GameObject lCandy = grid.allCandies[x - 1, y];
-                        GameObject rCandy = grid.allCandies[x + 1, y];
-                        if (lCandy != null && rCandy != null)
+                        GameObject leftCandy = grid.allCandies[x - 1, y];
+                        GameObject rightCandy = grid.allCandies[x + 1, y];
+                        if (leftCandy != null && rightCandy != null)
                         {
-                            if (lCandy.tag == currentCandy.tag && rCandy.tag == currentCandy.tag)
+                            if (leftCandy.tag == currentCandy.tag && rightCandy.tag == currentCandy.tag)
                             {
-                                if (!currentMatches.Contains(lCandy))
+                                if (!currentMatches.Contains(leftCandy))
                                 {
-                                    currentMatches.Add(lCandy);
+                                    currentMatches.Add(leftCandy);
                                 }
-                                lCandy.GetComponent<Candy>().isMatched = true;
-                                if (!currentMatches.Contains(rCandy))
+                                leftCandy.GetComponent<Candy>().isMatched = true;
+                                if (!currentMatches.Contains(rightCandy))
                                 {
-                                    currentMatches.Add(rCandy);
+                                    currentMatches.Add(rightCandy);
                                 }
-                                rCandy.GetComponent<Candy>().isMatched = true;
+                                rightCandy.GetComponent<Candy>().isMatched = true;
                                 if (!currentMatches.Contains(currentCandy))
                                 {
                                     currentMatches.Add(currentCandy);
                                 }
                                 currentCandy.GetComponent<Candy>().isMatched = true;
+
+                                // Increase the score and reset the currentMatches list
+                                UIManager.instance.IncreaseScore(10);
+                                currentMatches.Clear();
 
                             }
                         }
@@ -79,7 +85,9 @@ public class MatchesManager : MonoBehaviour
                                     currentMatches.Add(currentCandy);
                                 }
                                 currentCandy.GetComponent<Candy>().isMatched = true;
-
+                                // Increase the score and reset the currentMatches list
+                                UIManager.instance.IncreaseScore(10);
+                                currentMatches.Clear();
                             }
                         }
                     }
