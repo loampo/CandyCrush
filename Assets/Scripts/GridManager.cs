@@ -8,14 +8,6 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GridManager : MonoBehaviour
 {
-    public enum gameState
-    {
-        wait,
-        move
-    }
-
-
-    public gameState currentState = gameState.move;
     public int width;
     public int height;
     public int offset;
@@ -24,11 +16,13 @@ public class GridManager : MonoBehaviour
     public GameObject[] candies;
     public GameObject[,] allCandies;
     private MatchesManager _findMatches;
+    private StateMachine _state;
 
     // Start is called before the first frame update
     void Start()
     {
         _findMatches = FindObjectOfType<MatchesManager>();
+        _state = FindObjectOfType<StateMachine>();
         _allTiles = new Tile[width, height];
         allCandies = new GameObject[width, height];
         Setup();
@@ -209,6 +203,6 @@ public class GridManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
-        currentState = gameState.move;
+        _state.currentState = StateMachine.gameState.move;
     }
 }

@@ -19,6 +19,7 @@ public class CandyTile : MonoBehaviour
 
     private MatchesManager _match;
     private GridManager _grid;
+    private StateMachine _state;
 
     private GameObject _otherCandies;
 
@@ -33,6 +34,7 @@ public class CandyTile : MonoBehaviour
     {
         _grid = FindObjectOfType<GridManager>();
         _match = FindObjectOfType<MatchesManager>();
+        _state = FindObjectOfType<StateMachine>();
     }
     /// <summary>
     /// updates the position of the candy on the grid, and checks for any new matches(MatchesManager.findAllMatches() method) that the candy might be a part of.
@@ -102,7 +104,7 @@ public class CandyTile : MonoBehaviour
                 row = prevRow;
                 col = prevCol;
                 yield return new WaitForSeconds(.5f);
-                _grid.currentState = GridManager.gameState.move;
+                _state.currentState = StateMachine.gameState.move;
             }
             else
             {
@@ -116,7 +118,7 @@ public class CandyTile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_grid.currentState == GridManager.gameState.move)
+        if (_state.currentState == StateMachine.gameState.move)
         {
             _firstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
@@ -124,14 +126,14 @@ public class CandyTile : MonoBehaviour
     //On MouseDown and Up handle player input
     private void OnMouseUp()
     {
-        if (_grid.currentState == GridManager.gameState.move)
+        if (_state.currentState == StateMachine.gameState.move)
         {
             _finalTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             calculateAngle();
         }
         else
         {
-            _grid.currentState = GridManager.gameState.move;
+            _state.currentState = StateMachine.gameState.move;
         }
 
     }
@@ -144,7 +146,7 @@ public class CandyTile : MonoBehaviour
         {
             swipeAngle = Mathf.Atan2(_finalTouchPos.y - _firstTouchPos.y, _finalTouchPos.x - _firstTouchPos.x) * 180 / Mathf.PI;
             movePieces();
-            _grid.currentState = GridManager.gameState.wait;
+            _state.currentState = StateMachine.gameState.wait;
         }
 
     }
