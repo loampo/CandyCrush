@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 4541378970493144030}
   - component: {fileID: 4541378970493144031}
   - component: {fileID: 4541378970493144028}
-  - component: {fileID: 8197356013822324212}
   m_Layer: 0
-  m_Name: Tile
+  m_Name: CandySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4541378970493144029}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -96,22 +95,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8197356013822324212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4541378970493144029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a515098f3f3381a42bc93ec910815840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Candies:
-  - {fileID: 6101261890710891198, guid: a6bfabf1a1651db40afc06e57565cddf, type: 3}
-  - {fileID: 153369484263561733, guid: 8a26221caf75e9d499d4a4af1c23cf7d, type: 3}
-  - {fileID: 7383942987314357091, guid: 7a30d3a975024634d906ed4822324485, type: 3}
-  - {fileID: 6186617050363621578, guid: 9118f8227239aa54f902ab3c89123fee, type: 3}
-  - {fileID: 6929593697081832642, guid: eca1b0c6a329bdd4f9e2438b701fce0f, type: 3}
-  - {fileID: 6499878891391675134, guid: 4d1d6a23678b1714ab46e7a3dfb13238, type: 3}

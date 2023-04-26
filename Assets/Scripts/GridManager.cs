@@ -66,8 +66,8 @@ public class GridManager : MonoBehaviour
                 maxIterations = 0;
 
                 GameObject Candy = Instantiate(candies[dotToUse], tempPos, Quaternion.identity);
-                Candy.GetComponent<Candy>().row = y;
-                Candy.GetComponent<Candy>().col = x;
+                Candy.GetComponent<CandyTile>().row = y;
+                Candy.GetComponent<CandyTile>().col = x;
                 Candy.transform.parent = this.transform;
                 Candy.name = "Candy: ( " + x + ',' + y + " )";
                 allCandies[x, y] = Candy;
@@ -111,7 +111,7 @@ public class GridManager : MonoBehaviour
 
     private void destroyMatchesAt(int col, int row)
     {
-        if (allCandies[col, row].GetComponent<Candy>().isMatched)
+        if (allCandies[col, row].GetComponent<CandyTile>().isMatched)
         {
             _findMatches.currentMatches.Remove(allCandies[col, row]);
             Destroy(allCandies[col, row]);
@@ -148,7 +148,7 @@ public class GridManager : MonoBehaviour
                 }
                 else if (nullCount > 0)
                 {
-                    allCandies[x, y].GetComponent<Candy>().row -= nullCount;
+                    allCandies[x, y].GetComponent<CandyTile>().row -= nullCount;
                     allCandies[x, y] = null;
                 }
             }
@@ -171,8 +171,8 @@ public class GridManager : MonoBehaviour
                     int dotToUse = Random.Range(0, candies.Length);
                     GameObject Candy = Instantiate(candies[dotToUse], tempPos, Quaternion.identity);
                     allCandies[x, y] = Candy;
-                    Candy.GetComponent<Candy>().row = y;
-                    Candy.GetComponent<Candy>().col = x;
+                    Candy.GetComponent<CandyTile>().row = y;
+                    Candy.GetComponent<CandyTile>().col = x;
                 }
             }
         }
@@ -186,7 +186,7 @@ public class GridManager : MonoBehaviour
             {
                 if (allCandies[x, y] != null)
                 {
-                    if (allCandies[x, y].GetComponent<Candy>().isMatched)
+                    if (allCandies[x, y].GetComponent<CandyTile>().isMatched)
                     {
                         return true;
                     }

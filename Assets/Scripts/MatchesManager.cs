@@ -51,17 +51,17 @@ public class MatchesManager : MonoBehaviour
                                 {
                                     currentMatches.Add(leftCandy);
                                 }
-                                leftCandy.GetComponent<Candy>().isMatched = true;
+                                leftCandy.GetComponent<CandyTile>().isMatched = true;
                                 if (!currentMatches.Contains(rightCandy))
                                 {
                                     currentMatches.Add(rightCandy);
                                 }
-                                rightCandy.GetComponent<Candy>().isMatched = true;
+                                rightCandy.GetComponent<CandyTile>().isMatched = true;
                                 if (!currentMatches.Contains(currentCandy))
                                 {
                                     currentMatches.Add(currentCandy);
                                 }
-                                currentCandy.GetComponent<Candy>().isMatched = true;
+                                currentCandy.GetComponent<CandyTile>().isMatched = true;
 
                                 // Increase the score and reset the currentMatches list
                                 UIManager.instance.IncreaseScore(addscore);
@@ -82,17 +82,17 @@ public class MatchesManager : MonoBehaviour
                                 {
                                     currentMatches.Add(downCandy);
                                 }
-                                downCandy.GetComponent<Candy>().isMatched = true;
+                                downCandy.GetComponent<CandyTile>().isMatched = true;
                                 if (!currentMatches.Contains(upCandy))
                                 {
                                     currentMatches.Add(upCandy);
                                 }
-                                upCandy.GetComponent<Candy>().isMatched = true;
+                                upCandy.GetComponent<CandyTile>().isMatched = true;
                                 if (!currentMatches.Contains(currentCandy))
                                 {
                                     currentMatches.Add(currentCandy);
                                 }
-                                currentCandy.GetComponent<Candy>().isMatched = true;
+                                currentCandy.GetComponent<CandyTile>().isMatched = true;
                                 // Increase the score and reset the currentMatches list
                                 UIManager.instance.IncreaseScore(addscore);
                                 currentMatches.Clear();

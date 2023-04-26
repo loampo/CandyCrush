@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
-public class Candy : MonoBehaviour
+public class CandyTile : MonoBehaviour
 {
     public bool isMatched = false;
     public int col;
@@ -95,10 +95,10 @@ public class Candy : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         if (_otherCandies != null)
         {
-            if (!isMatched && !_otherCandies.GetComponent<Candy>().isMatched)
+            if (!isMatched && !_otherCandies.GetComponent<CandyTile>().isMatched)
             {
-                _otherCandies.GetComponent<Candy>().row = row;
-                _otherCandies.GetComponent<Candy>().col = col;
+                _otherCandies.GetComponent<CandyTile>().row = row;
+                _otherCandies.GetComponent<CandyTile>().col = col;
                 row = prevRow;
                 col = prevCol;
                 yield return new WaitForSeconds(.5f);
@@ -159,7 +159,7 @@ public class Candy : MonoBehaviour
             _otherCandies = _grid.allCandies[col + 1, row];
             prevRow = row;
             prevCol = col;
-            _otherCandies.GetComponent<Candy>().col -= 1;
+            _otherCandies.GetComponent<CandyTile>().col -= 1;
             col += 1;
 
         }
@@ -169,7 +169,7 @@ public class Candy : MonoBehaviour
             _otherCandies = _grid.allCandies[col, row + 1];
             prevRow = row;
             prevCol = col;
-            _otherCandies.GetComponent<Candy>().row -= 1;
+            _otherCandies.GetComponent<CandyTile>().row -= 1;
             row += 1;
 
         }
@@ -179,7 +179,7 @@ public class Candy : MonoBehaviour
             _otherCandies = _grid.allCandies[col - 1, row];
             prevRow = row;
             prevCol = col;
-            _otherCandies.GetComponent<Candy>().col += 1;
+            _otherCandies.GetComponent<CandyTile>().col += 1;
             col -= 1;
         }
         else if (swipeAngle < -45 && swipeAngle >= -135 && row > 0)
@@ -188,7 +188,7 @@ public class Candy : MonoBehaviour
             _otherCandies = _grid.allCandies[col, row - 1];
             prevRow = row;
             prevCol = col;
-            _otherCandies.GetComponent<Candy>().row += 1;
+            _otherCandies.GetComponent<CandyTile>().row += 1;
             row -= 1;
         }
 
@@ -205,8 +205,8 @@ public class Candy : MonoBehaviour
             {
                 if (leftCandy1.tag == this.gameObject.tag && rightCandy1.tag == this.gameObject.tag)
                 {
-                    leftCandy1.GetComponent<Candy>().isMatched = true;
-                    rightCandy1.GetComponent<Candy>().isMatched = true;
+                    leftCandy1.GetComponent<CandyTile>().isMatched = true;
+                    rightCandy1.GetComponent<CandyTile>().isMatched = true;
                     isMatched = true;
                 }
             }
@@ -219,8 +219,8 @@ public class Candy : MonoBehaviour
             {
                 if (upCandy1.tag == this.gameObject.tag && downCandy1.tag == this.gameObject.tag)
                 {
-                    upCandy1.GetComponent<Candy>().isMatched = true;
-                    downCandy1.GetComponent<Candy>().isMatched = true;
+                    upCandy1.GetComponent<CandyTile>().isMatched = true;
+                    downCandy1.GetComponent<CandyTile>().isMatched = true;
                     isMatched = true;
                 }
             }
